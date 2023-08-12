@@ -6,7 +6,7 @@ import { marked } from 'marked'
 import styles from './page.module.css'
 
 export default async function SinglePost({ params }) {
-    const { content, data } = await getPostData(params.slug)
+    const { content, data } = await getPost(params.slug)
     return (
         <div>
             <header className={styles.header}>
@@ -40,9 +40,8 @@ export default async function SinglePost({ params }) {
     )
 }
 
-
-export async function getPostData(slug) {
-    const markdownWithMetaData = fs.readFileSync(path.join('posts', slug + '.md')).toString()
+ async function getPost(params) {
+    const markdownWithMetaData = fs.readFileSync(path.join('posts', params + '.md')).toString()
     const { data, content } = matter(markdownWithMetaData)
     const html = marked(content)
     return {

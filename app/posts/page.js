@@ -45,7 +45,7 @@ export default async function PostPage() {
     )
 }
 
-export async function getPostsData() {
+ async function getPostsData() {
     const files = fs.readdirSync('posts')
     const posts = files.map((filename) => {
         const markdownWithMetaData = fs.readFileSync(path.join('posts', filename)).toString()

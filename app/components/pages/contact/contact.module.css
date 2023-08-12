@@ -1,0 +1,218 @@
+.contact {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    scroll-behavior: smooth;
+    padding: 5% 10% 5% 10%;
+    color: black
+}
+
+.contact .introText {
+    position: relative;
+    padding-left: 4rem;
+    color: black;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.introText p {
+    font-size: 1.25rem;
+}
+
+.desc text {
+    font-size: 1rem;
+}
+
+
+.introText::after {
+    content: '';
+    width: 3.8rem;
+    height: 2px;
+    background: #212529;
+    position: absolute;
+    left: 0;
+    bottom: 45%;
+}
+
+.contentArea {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.left {
+    width: 50%;
+    min-width: 20rem
+}
+
+.right {
+    width: 50%;
+    min-width: 24rem
+}
+
+.education {
+    margin: 0 2rem 2rem 0;
+    padding: 2rem 1rem;
+    border: 1px solid black;
+    opacity: 0;
+}
+
+.educationEnd {
+    margin: 0 2rem 2rem 0;
+    padding: 2rem 1rem;
+    border: 1px solid black;
+}
+
+.educationAnim {
+    animation: fadeInUp 1000ms ease-out;
+    animation-fill-mode: forwards
+}
+
+.delay1 {
+    animation-delay: 200ms;
+}
+
+.delay2 {
+    animation-delay: 400ms;
+}
+
+.delay3 {
+    animation-delay: 600ms;
+}
+
+.delay4 {
+    animation-delay: 800ms;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.novisible {
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.desc {
+    margin-bottom: 0.25rem;
+}
+
+.education img {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem 1rem 0;
+}
+
+.education h3 {
+    margin-bottom: 1rem;
+}
+
+.education .desc text {
+    color: #6c757d;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    background-color: #6c757d;
+    color: white;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.element {
+    width: 90%;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.eleLeft {
+    position: absolute;
+    left: 0;
+}
+
+.eleRight {
+    position: absolute;
+    right: 0;
+}
+
+.progressBar {
+    width: 100%;
+    height: 0.1rem;
+    background: #eeeeee;
+    position: absolute;
+    top: 1.5rem;
+
+}
+
+.progress {
+    width: 75%;
+    background: #1d2124;
+    height: 100%;
+}
+
+.contactDown {
+    margin-top: 8rem;
+    padding: 0;
+}
+
+.contactArea {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contactElement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+}
+
+.contactText {
+    color: #6c757d;
+    margin-left: 0.5rem;
+}
+
+.iconArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.headArea {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.iconArea img {
+    width: 3rem;
+    height: 3rem
+}

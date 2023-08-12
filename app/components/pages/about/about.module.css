@@ -1,0 +1,145 @@
+.about {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.moveLeft {
+    animation: move-left 1s ease-out;
+}
+
+.moveRight {
+    animation: move-right 1s ease-out;
+}
+
+
+.totalArea {
+    display: flex;
+    max-width: 80vw;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.contentArea {
+    min-width: 50rem;
+    width: 70%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+}
+
+.novisible {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+@keyframes move-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.imageArea {
+    /* min-width: 20rem;
+    width: 30%;
+    height: 844px; */
+    width: 20.5rem;
+    height: 44rem;
+}
+
+@keyframes move-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.introText {
+    position: relative;
+    padding-left: 4rem;
+    color: black;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.helloText {
+    color: black;
+    font-size: 1.875rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.intro {
+    color: #6c757d;
+    font-size: 1.5rem;
+    margin: 10px 0 10px 0;
+    max-width: 80vw;
+}
+
+.introText p {
+    font-size: 1.25rem;
+}
+
+.introText::after {
+    content: '';
+    width: 3.8rem;
+    height: 2px;
+    background: #212529;
+    position: absolute;
+    left: 0;
+    bottom: 45%;
+}
+
+.Area {
+    /* margin-left: 5%;
+    margin-right: 5%; */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 80vw;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name text {
+    /* margin: 15px; */
+    margin-right: 1rem;
+    font: bold;
+    font-size: 22px;
+}
+
+.name text:first-child {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.name text:last-child {
+    color: #6c757d;
+}
+

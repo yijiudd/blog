@@ -1,0 +1,54 @@
+.header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.container {
+
+    max-width: 42rem;
+    margin: auto;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav a {
+    margin: 0 1rem 0 1rem;
+    color: #8b8c8e;
+}
+
+.main {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.mainContainer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 42rem;
+    margin: auto;
+    width: 100%;
+}
+
+.article {
+    margin-bottom: 2.5rem;
+}
+
+.article a {
+    line-height: 1.5rem;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #2A3240;
+}
+
+.article p {
+    color: #8b8c8e;
+    margin: 0.3rem 0 ;
+}
+
+.article div {
+    color: #8b8c8e;
+    opacity: 0.5;
+}

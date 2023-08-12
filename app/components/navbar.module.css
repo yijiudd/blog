@@ -1,0 +1,64 @@
+.navbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #3586ff;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ul li {
+    display: block;
+    color: white;
+    padding: 14px 14px;
+    flex-direction: row;
+}
+
+
+.ul li:hover a {
+    /* background-color: #00FFFF; */
+    color: aqua;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.ul li:hover div {
+    /* background-color: #00FFFF; */
+    color: aqua;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    cursor: pointer
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    background: transparent;
+    /* font-size: 1rem; */
+}
+
+
+.pointer {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.6rem;
+}
+
+.label {
+    position: relative;
+}
+
+.heavy {
+    font-weight: 600;
+}

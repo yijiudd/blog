@@ -40,8 +40,8 @@ export default async function SinglePost({ params }) {
     )
 }
 
- async function getPost(params) {
-    const markdownWithMetaData = fs.readFileSync(path.join('posts', params + '.md')).toString()
+async function getPost(params) {
+    const markdownWithMetaData = fs.readFileSync(path.join(process.cwd(), 'posts', params + '.md')).toString()
     const { data, content } = matter(markdownWithMetaData)
     const html = marked(content)
     return {

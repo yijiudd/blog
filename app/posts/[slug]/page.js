@@ -4,6 +4,7 @@ import Link from 'next/link'
 import matter from 'gray-matter'
 import { marked } from 'marked'
 import styles from './page.module.css'
+import Comments from '../../components/comments'
 
 export default async function SinglePost({ params }) {
     const { content, data } = await getPost(params.slug)
@@ -33,6 +34,7 @@ export default async function SinglePost({ params }) {
                     </div>
                 </div>
             </main>
+            <Comments/>
             {/* <h1>{data.title}</h1>
             <p>{data.date.toString()}</p>
             <div dangerouslySetInnerHTML={{ __html: content }}></div> */}

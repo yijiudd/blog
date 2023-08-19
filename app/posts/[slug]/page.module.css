@@ -5,7 +5,7 @@
 
 .container {
 
-    max-width: 42rem;
+    max-width: 48rem;
     margin: auto;
     width: 100%;
 }
@@ -27,7 +27,7 @@
 .mainContainer {
     padding-left: 1rem;
     padding-right: 1rem;
-    max-width: 42rem;
+    max-width: 48rem;
     margin: auto;
     width: 100%;
 }

@@ -5,6 +5,8 @@ author: Yi Jiu
 disc: The reason that I decided to quit my job is that...
 
 ---
+<img src="/desk.jpg" alt="desk" width="100%" height="100%"/>
+
 
 ## The Whole Story
 

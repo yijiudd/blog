@@ -5,7 +5,8 @@
     background-color: white;
     scroll-behavior: smooth;
     padding: 5% 10% 5% 10%;
-    color: black
+    color: black;
+    font-family: 'Poppins', sans-serif;
 }
 
 .contact .introText {

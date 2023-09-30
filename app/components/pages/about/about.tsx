@@ -33,7 +33,7 @@ const About = () => {
                 <p className={styles.intro}> I worked at ByteDance as a Front-end Engineer developing H5 games before,but now I am a CS graducate student in Waseda University. I am doing research on computer vision.I dream about working in game industry in Japan one day. </p>
                 <div className={styles.Area}>
                     <div className={styles.name}>
-                        <text>Name</text>
+                        <text>Name:</text>
                         <text>Yi Jiu</text>
                     </div>
                     <div className={styles.name}>

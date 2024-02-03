@@ -13,6 +13,13 @@
     width: 100%;
 }
 
+.disc{
+    display: flex;
+    flex-direction: row;
+}
+.disc time{
+    margin-left: 1rem
+}
 .nav {
     display: flex;
 }

@@ -1,54 +1,69 @@
-import fs from 'fs'
-import path from 'path'
-import Link from 'next/link'
-import matter from 'gray-matter'
-import { marked } from 'marked'
-import styles from './page.module.css'
-import Comments from '../../components/comments'
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
+import matter from "gray-matter";
+import { marked } from "marked";
+import styles from "./page.module.css";
+import Comments from "../../components/comments";
+
+import { sql } from "@vercel/postgres";
 
 export default async function SinglePost({ params }) {
-    const { content, data } = await getPost(params.slug)
-    return (
-        <div>
-            <header className={styles.header}>
-                <div className={styles.container}>
-                    <nav className={styles.nav}>
-                        <Link href='/'>Home</Link>
-                        <Link href='/posts'>Posts</Link>
-                    </nav>
-                </div>
-            </header>
-            <main className={styles.main}>
-                <div className={styles.mainContainer}>
-                    <div>
-                        <article>
-                            <header className={styles.articleHeader}>
-                                <h1 >{data.title}</h1>
-                                <p>{data.disc}</p>
-                                <div><time>{data.date}</time></div>
-                            </header>
-                            <div className={styles.htmlContent} dangerouslySetInnerHTML={{ __html: content }}>
+  const { content, data } = await getPost(params.slug);
+  try {
+    const { rows } = await sql`SELECT * from Posts where Title=${params.slug};`;
+    const updateReadtimes = await sql`UPDATE Posts SET Readtimes=${
+      rows[0].readtimes + 1
+    } where Title=${params.slug};`;
+  } catch (err) {
+    console.log(err);
+  }
 
-                            </div>
-                        </article>
-                    </div>
+  return (
+    <div>
+      <header className={styles.header}>
+        <div className={styles.container}>
+          <nav className={styles.nav}>
+            <Link href="/">Home</Link>
+            <Link href="/posts">Posts</Link>
+          </nav>
+        </div>
+      </header>
+      <main className={styles.main}>
+        <div className={styles.mainContainer}>
+          <div>
+            <article>
+              <header className={styles.articleHeader}>
+                <h1>{data.title}</h1>
+                <p>{data.disc}</p>
+                <div>
+                  <time>{data.date}</time>
                 </div>
-            </main>
-            <Comments/>
-            {/* <h1>{data.title}</h1>
+              </header>
+              <div
+                className={styles.htmlContent}
+                dangerouslySetInnerHTML={{ __html: content }}
+              ></div>
+            </article>
+          </div>
+        </div>
+      </main>
+      <Comments />
+      {/* <h1>{data.title}</h1>
             <p>{data.date.toString()}</p>
             <div dangerouslySetInnerHTML={{ __html: content }}></div> */}
-        </div>
-    )
+    </div>
+  );
 }
 
 async function getPost(params) {
-    const markdownWithMetaData = fs.readFileSync(path.join(process.cwd(), 'posts', params + '.md')).toString()
-    const { data, content } = matter(markdownWithMetaData)
-    const html = marked(content)
-    return {
-        content: html,
-        data
-    }
-
+  const markdownWithMetaData = fs
+    .readFileSync(path.join(process.cwd(), "posts", params + ".md"))
+    .toString();
+  const { data, content } = matter(markdownWithMetaData);
+  const html = marked(content);
+  return {
+    content: html,
+    data,
+  };
 }

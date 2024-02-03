@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
-
+export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(request: Request) {
     try{
         const {searchParams}=new URL(request.url)

@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     try{
@@ -9,9 +10,9 @@ export async function GET(request: Request) {
           rows[0].readtimes + 1
         } where Title=${title};`;
         const updated= await sql`SELECT * from Posts where Title=${title};`;
-        return Response.json(updated.rows)
+        return NextResponse.json(updated.rows)
 
     }catch(e){
-        return Response.json(e)
+        return NextResponse.json(e)
     }
 }

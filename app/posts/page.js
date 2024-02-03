@@ -5,11 +5,12 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { sql } from "@vercel/postgres";
 import PostClick from "../components/postClick";
+import { resolve } from "node:path/win32";
 export default async function PostPage() {
   // const { rows } = await sql`SELECT * from Posts;`;
-  const respose = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/create-posts-table`);
+  const respose = await fetch(`https://blog-git-main-yijiudd.vercel.app/api/create-posts-table`);
   const res = await respose.json();
-  console.log("fetch res", res.result.rows);
+  console.log("fetch res", res);
   const posts = await getPostsData();
   posts.forEach((post) => {
     post.readingTime = getReadingTimesBySlug(post.slug, res.result.rows);

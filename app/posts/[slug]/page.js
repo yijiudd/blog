@@ -10,14 +10,6 @@ import { sql } from "@vercel/postgres";
 
 export default async function SinglePost({ params }) {
   const { content, data } = await getPost(params.slug);
-  try {
-    const { rows } = await sql`SELECT * from Posts where Title=${params.slug};`;
-    const updateReadtimes = await sql`UPDATE Posts SET Readtimes=${
-      rows[0].readtimes + 1
-    } where Title=${params.slug};`;
-  } catch (err) {
-    console.log(err);
-  }
 
   return (
     <div>

@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { sql } from "@vercel/postgres";
+import PostClick from "../components/postClick"
 export default async function PostPage() {
   const { rows } = await sql`SELECT * from Posts;`;
   const posts = await getPostsData();
@@ -38,7 +39,8 @@ export default async function PostPage() {
                     </article> */}
           {posts.map((post) => (
             <article className={styles.article} key={post.slug}>
-              <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+              {/* <a onClick={()=>console.log('slug',post.slug)}href={`/posts/${post.slug}`}>{post.data.title}</a> */}
+              <PostClick post={post}/>
               <p>{post.data.disc}</p>
               <div className={styles.disc}>
                 <text>{post.readingTime} readings</text>
@@ -51,6 +53,7 @@ export default async function PostPage() {
     </div>
   );
 }
+
 function getReadingTimesBySlug(slug, rows) {
   
   let readingTime = 0;

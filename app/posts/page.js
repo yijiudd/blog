@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const PostPage = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`https://blog-git-main-yijiudd.vercel.app/api/create-posts-table`)
+    fetch(`https://${window.location.hostname}/api/create-posts-table`)
       .then((res) => res.json())
       .then((res) => {
         setPosts(res.result.rows);
@@ -49,7 +49,7 @@ const PostPage = () => {
               <p>{post.disc}</p>
               <div className={styles.disc}>
                 <text>{post.readtimes} readings</text>
-                <time>{new Date(post.date).toLocaleDateString('en-US')}</time>
+                <time>{new Date(post.date).toLocaleDateString("en-US")}</time>
               </div>
             </article>
           ))}

@@ -4,13 +4,17 @@ import matter from "gray-matter";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { sql } from "@vercel/postgres";
-import PostClick from "../components/postClick"
+import PostClick from "../components/postClick";
 export default async function PostPage() {
-  const { rows } = await sql`SELECT * from Posts;`;
+  // const { rows } = await sql`SELECT * from Posts;`;
+  const respose = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/create-posts-table`);
+  const res = await respose.json();
+  console.log("fetch res", res.result.rows);
   const posts = await getPostsData();
   posts.forEach((post) => {
-    post.readingTime = getReadingTimesBySlug(post.slug,rows);
+    post.readingTime = getReadingTimesBySlug(post.slug, res.result.rows);
   });
+  console.log("posts", posts);
   return (
     <div>
       <header className={styles.header}>
@@ -40,7 +44,7 @@ export default async function PostPage() {
           {posts.map((post) => (
             <article className={styles.article} key={post.slug}>
               {/* <a onClick={()=>console.log('slug',post.slug)}href={`/posts/${post.slug}`}>{post.data.title}</a> */}
-              <PostClick post={post}/>
+              <PostClick post={post} />
               <p>{post.data.disc}</p>
               <div className={styles.disc}>
                 <text>{post.readingTime} readings</text>
@@ -55,7 +59,6 @@ export default async function PostPage() {
 }
 
 function getReadingTimesBySlug(slug, rows) {
-  
   let readingTime = 0;
   rows.forEach(({ title, readtimes }) => {
     if (title === slug) {

@@ -17,6 +17,7 @@ import { NextResponse } from "next/server";
 //   return NextResponse.json({error},{status:500})
 //   }
 // }
+export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(request: Request) {
   //insert Posts
   try{

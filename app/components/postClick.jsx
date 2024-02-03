@@ -13,7 +13,7 @@ export default PostClick;
 const onPostClick = async (title) => {
     //call the backend to add reading time
     const updateRes = await fetch(
-        `http://blog-yijiudd.vercel.app/api/add-read-times?title=${title}`
+        `${process.env.NEXT_PUBLIC_URL}/api/add-read-times?title=${title}`
     );
     const res=await updateRes.json()
     console.log('updateRes',res)

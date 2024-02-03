@@ -21,7 +21,7 @@ export const dynamic = 'force-dynamic' // defaults to auto
 export async function GET(request: Request) {
   //insert Posts
   try{
-  const result=await sql`SELECT * FROM Posts`
+  const result=await sql`SELECT * FROM Posts ORDER BY Date DESC`
   return NextResponse.json({result},{status:200})
   }catch(error){
   return NextResponse.json({error},{status:500})

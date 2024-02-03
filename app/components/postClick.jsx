@@ -2,10 +2,10 @@
 const PostClick = ({ post }) => {
   return (
     <a
-      onClick={() => onPostClick(post.slug)}
-      href={`/posts/${post.slug}`}
+      onClick={() => onPostClick(post.title)}
+      href={`/posts/${post.title}`}
     >
-      {post.data.title}
+      {post.head}
     </a>
   );
 };

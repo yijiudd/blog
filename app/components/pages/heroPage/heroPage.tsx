@@ -43,7 +43,7 @@ const HeroPage = () => {
             <div><h1 className={styles.text1}>Hello!</h1></div>
             <div><span className={styles.text2}>My name is</span><span className={styles.name}>Yi Jiu</span></div>
             <div>
-                <span className={`${styles.text} ${styles.firstText}`}>I am a</span>
+                <span className={`${styles.text} ${styles.firstText}`}>I am a </span>
                 <span className={`${styles.text} ${styles.secText}`}>{text}</span>
                 <span className={`${styles.text} ${styles.cursor}`}>|</span>
             </div>
